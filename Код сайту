@@ -77,19 +77,16 @@ window.lazySizesConfig.expand = 1000;
                         element.classList.remove('con-kit-animation--start');
                     }, duration);
                 }
-            
                 var observer = new IntersectionObserver(
                     function (entries, obs) {
                         entries.forEach(function (entry) {
                             if (!entry.isIntersecting) return;
                             obs.unobserve(entry.target);
-        
                             setTimeout(function() {animateClassName(entry.target)}, 200)
                         })
                     },
                     { rootMargin: '-100px' }
                 );
-                
                 sectionElement.classList.add('con-kit-animation--prestart');
                 observer.observe(sectionElement)
             }
